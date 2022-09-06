@@ -23,10 +23,10 @@ export class UsersController {
   }
 
   /**
-   * @method test
+   * @method microserviceTwoWayCommunication
    */
   @EventPattern('test_route')
-  async test() {
+  async microserviceTwoWayCommunication() {
     console.log('working ...............');
   }
 }

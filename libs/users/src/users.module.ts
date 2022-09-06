@@ -11,10 +11,6 @@ import { AuthModule } from '@app/auth';
   controllers: [UsersController],
   providers: [UsersService, UsersRepository],
   exports: [UsersService],
-  imports: [
-    forwardRef(() => CommonModule),
-    TypeOrmModule.forFeature([User]),
-    RmqModule.register({ name: 'auth' }),
-  ],
+  imports: [forwardRef(() => CommonModule), TypeOrmModule.forFeature([User])],
 })
 export class UsersModule {}

@@ -43,11 +43,10 @@ export class AuthController {
   }
 
   /**
-   * @method test
-   * @returns
+   * @method microserviceTwoWayCommunication
    */
   @Get()
-  async test() {
-    return this.authService.test();
+  async microserviceTwoWayCommunication() {
+    return this.authService.microserviceTwoWayCommunication();
   }
 }

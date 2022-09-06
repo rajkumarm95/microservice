@@ -51,8 +51,8 @@ export class AuthService {
    * @method test
    * @returns
    */
-  test() {
+  microserviceTwoWayCommunication() {
     this.authClient.emit('test_route', 'working');
-    return 'ok';
+    return 'event pattern triggered';
   }
 }
