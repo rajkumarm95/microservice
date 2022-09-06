@@ -14,7 +14,7 @@ import * as cookieParser from 'cookie-parser';
   exports: [AuthService],
   imports: [
     UsersModule,
-    RmqModule.register({ name: 'auth' }), // registering as a microservice client
+    RmqModule.register({ name: 'auth' }), // registering as a microservice client => try importing from index.ts
     JwtModule.registerAsync({
       useFactory: () => ({
         secret: 'xlOj2c2U?x(`pcT:I]}$gt3F;A()ZZ&3kiL,o~t',

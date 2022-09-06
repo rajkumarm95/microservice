@@ -5,7 +5,7 @@ import { Response } from 'express';
 import { AuthService } from './auth.service';
 import { MessagePattern } from '@nestjs/microservices';
 import { CurrentUser } from './decorator/current-user.decorator';
-import JwtAuthGuard from './guards/jwt-auth.guard';
+import { JwtAuthGuard } from './guards/custom/jwt-auth.guard';
 
 @Controller('auth')
 export class AuthController {

@@ -1,5 +1,4 @@
 import { RmqModule } from './../../common/src/rmq/rmq.module';
-import { CommonModule } from './../../common/src/common.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { forwardRef, Module } from '@nestjs/common';
 import { OrdersController } from './orders.controller';
@@ -7,6 +6,7 @@ import { OrdersService } from './orders.service';
 import { Orders } from './entities/order.entity';
 import { OrdersLibRepository } from './orders.repository';
 import { AuthModule } from '@app/auth';
+import { CommonModule } from '@app/common';
 
 @Module({
   controllers: [OrdersController],

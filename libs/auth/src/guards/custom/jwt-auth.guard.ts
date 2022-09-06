@@ -11,7 +11,11 @@ import { catchError, Observable, tap } from 'rxjs';
 @Injectable()
 export class JwtAuthGuard implements CanActivate {
   constructor(@Inject('AUTH') private authClient: ClientProxy) {}
-
+  /**
+   * @method canActivate (default method)
+   * @param context
+   * @returns
+   */
   canActivate(
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
@@ -30,6 +34,11 @@ export class JwtAuthGuard implements CanActivate {
       );
   }
 
+  /**
+   * @method getAuthentication
+   * @param context
+   * @returns
+   */
   private getAuthentication(context: ExecutionContext) {
     let authentication: string;
     if (context.getType() === 'rpc') {
@@ -46,6 +55,11 @@ export class JwtAuthGuard implements CanActivate {
     return authentication;
   }
 
+  /**
+   * @method addUser
+   * @param user
+   * @param context
+   */
   private addUser(user: any, context: ExecutionContext) {
     if (context.getType() === 'rpc') {
       context.switchToRpc().getData().user = user;

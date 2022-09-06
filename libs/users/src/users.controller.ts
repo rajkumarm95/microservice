@@ -1,8 +1,7 @@
-import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { EventPattern } from '@nestjs/microservices';
 import { CreateUserDto } from './dto/create-user.dto';
-import { JwtAuthGuard } from '@app/auth';
 
 @Controller('users')
 export class UsersController {

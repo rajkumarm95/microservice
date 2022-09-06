@@ -5,7 +5,6 @@ import {
   UnprocessableEntityException,
 } from '@nestjs/common';
 import { UsersRepository } from './users.repository';
-import * as bcrypt from 'bcrypt';
 import { User } from './entities/user.entity';
 
 @Injectable()
