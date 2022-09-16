@@ -4,22 +4,29 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 @Injectable()
-export class OrdersLibRepository {
+export class OrdersRepository {
   /**
    * @constructor OrdersLibRepository DI
-   * @param ordersLibRepository
+   * @param ordersRepository
    */
   constructor(
     @InjectRepository(Orders)
-    private ordersLibRepository: Repository<Orders>,
+    private ordersRepository: Repository<Orders>,
   ) {}
 
   /**
    * @method fetchAllData
    * @returns
    */
-  async fetchAllData() {
-    return this.ordersLibRepository.find();
+  async CreateNewOrder(req: any) {
+    console.log(req);
+
+    return this.ordersRepository.save(
+      this.ordersRepository.create({
+        name: req.body.name,
+        phoneNumber: req.body.phoneNumber,
+      }),
+    );
   }
   /**
    * @method fetchOrderById
@@ -27,6 +34,6 @@ export class OrdersLibRepository {
    * @returns
    */
   async fetchOrderById(id: number) {
-    return this.ordersLibRepository.findOne({ where: { id } });
+    return this.ordersRepository.findOne({ where: { id } });
   }
 }

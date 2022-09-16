@@ -10,6 +10,10 @@ import { catchError, Observable, tap } from 'rxjs';
 
 @Injectable()
 export class JwtAuthGuard implements CanActivate {
+  /**
+   * @constructor JwtAuthGuard DI
+   * @param authClient
+   */
   constructor(@Inject('AUTH') private authClient: ClientProxy) {}
   /**
    * @method canActivate (default method)

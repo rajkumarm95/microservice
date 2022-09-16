@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
-import { OrdersLibRepository } from './orders.repository';
+import { OrdersRepository } from './orders.repository';
 
 @Injectable()
 export class OrdersService {
@@ -10,7 +10,7 @@ export class OrdersService {
    * @param billingClient
    */
   constructor(
-    private ordersRepository: OrdersLibRepository,
+    private ordersRepository: OrdersRepository,
     @Inject('BILLING') private billingClient: ClientProxy,
   ) {}
 
@@ -18,14 +18,17 @@ export class OrdersService {
    * @method fetchAllData
    * @returns
    */
-  async fetchAllOrders(authentication: string) {
+  async CreateNewOrder(req: any) {
     this.billingClient.emit(
       'order_created', // event pattern
-      { mes: 'emitted from order service', Authentication: authentication }, //payload (data)
+      {
+        mes: 'emitted from order service',
+        Authentication: req.cookies?.Authentication,
+      }, //payload (data)
     );
     console.log('event emitted');
 
-    return this.ordersRepository.fetchAllData();
+    return this.ordersRepository.CreateNewOrder(req);
   }
 
   /**

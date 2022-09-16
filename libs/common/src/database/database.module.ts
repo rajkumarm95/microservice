@@ -1,4 +1,4 @@
-import { Orders } from '@app/orders';
+import { Orders } from './../../../orders/src/entities/order.entity';
 import { User } from '@app/users';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
