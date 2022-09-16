@@ -1,7 +1,7 @@
-import { Orders } from './entities/order.entity';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { Orders } from './entities/order.entity';
 
 @Injectable()
 export class OrdersRepository {
@@ -15,12 +15,10 @@ export class OrdersRepository {
   ) {}
 
   /**
-   * @method fetchAllData
+   * @method CreateNewOrder
    * @returns
    */
   async CreateNewOrder(req: any) {
-    console.log(req);
-
     return this.ordersRepository.save(
       this.ordersRepository.create({
         name: req.body.name,

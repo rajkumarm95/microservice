@@ -15,7 +15,7 @@ export class OrdersService {
   ) {}
 
   /**
-   * @method fetchAllData
+   * @method CreateNewOrder
    * @returns
    */
   async CreateNewOrder(req: any) {
